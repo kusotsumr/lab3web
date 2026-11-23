@@ -1,0 +1,80 @@
+body {
+    background-color: #ffd9ec;
+    font-family: Arial, sans-serif;
+    background-image: url(saya3.JPEG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    font-family: fantasy;
+    color: #ffc0e2;
+    font-size: 30px;
+    text-align: center;
+}
+
+p { color: #dca7d3; }
+header > p { margin: 4px 0; }
+form > div { margin-bottom: 15px; }
+section label { margin-right: 4px; }
+input { padding: 0.3%; }
+form { color: #ffc0e2; }
+
+.y-btn { padding: 2px 6px; margin: 0 2px; }
+.y-btn.selected {
+    background-color: #d384ae;
+    color: #ffc0e2;
+}
+
+.error-msg {
+    color: #ff4d6d;
+    font-weight: bold;
+    min-height: 1.2em;
+}
+
+#resultsTable { border-collapse: collapse; width: 100%; }
+#resultsTable td, #resultsTable th {
+    border: 1px solid #c77b9e;
+    padding: 6px 10px;
+}
+#resultsTable th { background-color: #d384ae; }
+.row-hit { background-color: #ffc0e2; }
+.row-not-hit { background-color: #df9fc2; }
+
+#myCanvas {
+    border: 2px solid #dca7d3;
+    background-color: #ecc9dc;
+    cursor: crosshair;
+}
+
+section {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+.cat {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.results { flex: 1; min-width: 0; }
+.table-wrap { max-height: 500px; overflow-y: auto; }
+
+.result-page .results { min-width: 500px; }
+.verdict { font-size: 22px; }
+.back-link { color: #ffc0e2; font-size: 18px; }
+
+@media (max-width: 600px) {
+    body {
+        background-image: url(saya4.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+    section { flex-direction: column; gap: 4px; }
+    #myCanvas { max-width: 100%; height: auto; }
+    .result-page .results { min-width: 0; }
+}
