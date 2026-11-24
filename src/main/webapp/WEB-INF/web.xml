@@ -4,7 +4,6 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
-    <!-- Единственная "точка входа": все запросы идут в ControllerServlet -->
     <servlet>
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>org.example.ControllerServlet</servlet-class>
@@ -14,8 +13,6 @@
         <url-pattern>/controller</url-pattern>
     </servlet-mapping>
 
-    <!-- AreaCheckServlet намеренно БЕЗ url-mapping: напрямую его вызвать нельзя,
-         только через forward из контроллера (getNamedDispatcher) -->
     <servlet>
         <servlet-name>AreaCheckServlet</servlet-name>
         <servlet-class>org.example.AreaCheckServlet</servlet-class>
