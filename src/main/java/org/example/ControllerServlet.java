@@ -7,11 +7,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-/**
- * Принимает ВСЕ запросы приложения (GET).
- * Если в запросе есть координаты/радиус -> AreaCheckServlet,
- * иначе -> JSP со страницей с формой.
- */
 public class ControllerServlet extends HttpServlet {
 
     @Override
