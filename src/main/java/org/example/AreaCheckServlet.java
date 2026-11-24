@@ -14,10 +14,6 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Pattern;
 
-/**
- * Проверяет попадание точки в область и формирует HTML-страницу с результатом.
- * Вызывается только через forward из ControllerServlet (url-mapping нет).
- */
 public class AreaCheckServlet extends HttpServlet {
 
     private static final Pattern NUMBER = Pattern.compile("-?\\d+(\\.\\d+)?");
