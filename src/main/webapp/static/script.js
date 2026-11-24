@@ -1,6 +1,6 @@
 const SIZE = 400;
-const C = SIZE / 2;        // центр холста
-const UNIT = 40;           // пикселей на единицу (виден диапазон -5 ... 5)
+const C = SIZE / 2;       
+const UNIT = 40;           
 
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
@@ -14,7 +14,6 @@ const yButtons = document.querySelectorAll(".y-btn");
 const px = (x) => C + x * UNIT;
 const py = (y) => C - y * UNIT;
 
-// ---------- вспомогательное ----------
 const NUM_RE = /^-?\d+([.,]\d+)?$/;
 
 function parseNum(text) {
@@ -32,16 +31,14 @@ function showError(msg) {
     errorBox.textContent = msg;
 }
 
-// ---------- рисование ----------
 function drawFigure(r) {
     ctx.fillStyle = "#d158b3";
 
-    // прямоугольник: x in [-R/2, 0], y in [0, R]
+
     ctx.beginPath();
     ctx.rect(px(-r / 2), py(r), (r / 2) * UNIT, r * UNIT);
     ctx.fill();
 
-    // четверть круга радиуса R/2
     ctx.beginPath();
     ctx.moveTo(px(0), py(0));
     ctx.lineTo(px(0), py(r / 2));
@@ -49,7 +46,6 @@ function drawFigure(r) {
     ctx.closePath();
     ctx.fill();
 
-    // треугольник (0,0), (R,0), (0,-R/2)
     ctx.beginPath();
     ctx.moveTo(px(0), py(0));
     ctx.lineTo(px(r), py(0));
@@ -69,7 +65,6 @@ function drawAxes(r) {
     ctx.moveTo(C, C - end); ctx.lineTo(C, C + end);
     ctx.stroke();
 
-    // стрелки
     ctx.beginPath();
     ctx.moveTo(C + end, C); ctx.lineTo(C + end - 8, C - 4); ctx.lineTo(C + end - 8, C + 4);
     ctx.closePath(); ctx.fill();
@@ -81,7 +76,6 @@ function drawAxes(r) {
     ctx.fillText("x", C + end - 10, C + 16);
     ctx.fillText("y", C + 8, C - end + 10);
 
-    // метки: целые единицы (маленькие), и R, R/2 если радиус задан
     for (let i = -4; i <= 4; i++) {
         if (i === 0) continue;
         ctx.beginPath();
@@ -125,7 +119,6 @@ function redraw() {
     drawPoints();
 }
 
-// ---------- события ----------
 rInput.addEventListener("input", () => {
     showError("");
     redraw();
@@ -140,7 +133,6 @@ yButtons.forEach((btn) => {
     });
 });
 
-// Клик по графику -> координаты -> запрос на сервер (через контроллер)
 canvas.addEventListener("click", (e) => {
     const r = getR();
     if (r === null) {
@@ -160,7 +152,6 @@ canvas.addEventListener("click", (e) => {
     window.location.href = window.CONTROLLER_URL + "?x=" + x + "&y=" + y + "&r=" + r;
 });
 
-// Валидация формы
 form.addEventListener("submit", (e) => {
     const x = parseNum(xInput.value);
     if (x === null) {
@@ -189,7 +180,6 @@ form.addEventListener("submit", (e) => {
         showError("R должен быть в диапазоне от 1 до 4.");
         return;
     }
-    // десятичную запятую заменяем на точку перед отправкой
     xInput.value = String(x);
     rInput.value = String(r);
 });
