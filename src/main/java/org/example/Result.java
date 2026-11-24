@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/** Один результат проверки (хранится в HTTP-сессии). */
 public class Result implements Serializable {
     private static final long serialVersionUID = 1L;
 
